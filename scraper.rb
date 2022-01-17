@@ -7,7 +7,10 @@ def scraper
     unparsed_page = HTTParty.get(url)
     parsed_page = Nokogiri::HTML(unparsed_page)
     articles = Array.new
-    headers= parsed_page.css('a.post-block__title__link')
+    headers = parsed_page.css('a.post-block__title__link')
+
+    per_page = headers.count
+    total = 
 
     headers.each do |header|
         article = {
